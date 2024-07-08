@@ -5,16 +5,15 @@ const port = 3000;
 let numbers = [1, 2, 3, 4, 5];
 let strings = ["hello", "world", "javascript", "node"];
 
-// numbers/add
+// numbers/add .
 
-function addNumber(number, num) {
+function addToArr(number, num) {
   number.push(num);
   return number;
 }
 
 app.get("/numbers/add", (req, res) => {
-  let num = parseFloat(req.query.num);
-  let result = addNumber(numbers, num);
+  let result = addToArr(numbers, 6);
   res.json({ addedNumher: result });
 });
 
@@ -25,16 +24,15 @@ function addString(newString, str) {
 }
 
 app.get("/strings/add", (req, res) => {
-  let str = req.query.str;
-  let result = addString(strings, str);
+  let result = addString(strings, "express");
   res.json({ addedString: result });
 });
 
 // numbers/sum
-function sumNumbers(numbers) {
+function sumNumbers(numArray) {
   let sum = 0;
-  for (let i = 1; i < numbers.length; i++) {
-    sum += numbers[i];
+  for (let i = 0; i < numArray.length; i++) {
+    sum = sum + numArray[i];
   }
   return sum;
 }
